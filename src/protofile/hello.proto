@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package protofile;
+
+option go_package = "./protofile";
+
+service Math {
+  rpc Twice (Request) returns (Response) {}
+}
+
+message Request {
+  int32 key = 1;
+}
+
+message Response {
+  int32 value = 1;
+}
+
+/*
+protoc \
+--go_out=./src/protofile --go_opt=paths=source_relative \
+--go-grpc_out=./src/protofile --go-grpc_opt=paths=source_relative \
+--proto_path=/Users/au_miner/opt/workspace/develop/rpc/jrpc/src/protofile hello.proto
+ */
