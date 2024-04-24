@@ -20,7 +20,7 @@ func NewObjectWriter(conn net.Conn) *ObjectWriter {
 	return &ObjectWriter{conn}
 }
 
-func (ow *ObjectWriter) WriteObject(data entities.RPCdata, serializer serializer.CommonSerializer) error {
+func (ow *ObjectWriter) WriteObject(data *entities.RPCdata, serializer serializer.CommonSerializer) error {
 	dataByte, err := serializer.Serialize(data)
 	if err != nil {
 		return err

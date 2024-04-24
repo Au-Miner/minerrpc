@@ -36,7 +36,7 @@ func (client *SocketClient) SendRequest(req entities.RPCdata) (*entities.RPCdata
 	if err != nil {
 		return nil, err
 	}
-	err = transportUtils.NewObjectWriter(conn).WriteObject(req, client.Serializer)
+	err = transportUtils.NewObjectWriter(conn).WriteObject(&req, client.Serializer)
 	if err != nil {
 		return nil, err
 	}

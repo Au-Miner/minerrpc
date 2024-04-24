@@ -18,10 +18,10 @@ func NewZkServiceDiscovery(lb loadbalancer.LoadBalancer) *ZkServiceDiscovery {
 	}
 }
 
-func (z *ZkServiceDiscovery) LookupService(serviceName string) (*net.TCPAddr, error) {
+func (zsd *ZkServiceDiscovery) LookupService(serviceName string) (*net.TCPAddr, error) {
 	instances, err := utils.GetAllInstances(serviceName)
 	if err != nil {
 		return nil, err
 	}
-	return z.LoadBalancer.Select(instances)
+	return zsd.LoadBalancer.Select(instances)
 }

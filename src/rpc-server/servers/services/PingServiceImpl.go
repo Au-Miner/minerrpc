@@ -1,11 +1,11 @@
-package services
+package serversServices
 
-type PingServiceImpl struct{}
+type TestImpl struct{}
 
-func (s *PingServiceImpl) Ping() string {
-	return "pong"
+func (s *TestImpl) Ping() (string, error) {
+	return "pong", nil
 }
 
-func (s *PingServiceImpl) ping(name string) string {
-	return "pong " + name
+func (s *TestImpl) Hello() (string, error) {
+	return "World", nil
 }
