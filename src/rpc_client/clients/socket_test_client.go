@@ -7,7 +7,8 @@ import (
 )
 
 func main() {
-	client := transportClient.NewDefaultSocketClient()
+	// client := transportClient.NewDefaultSocketClient()
+	client := transportClient.NewDefaultSocketClientWithAimIp("127.0.0.1:3212")
 	proxy := transportClient.NewRpcClientProxy(client)
 
 	testService := proxy.NewProxyInstance(&apiServices.Test{}).(*apiServices.Test)

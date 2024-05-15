@@ -54,7 +54,7 @@ func (or *ObjectReader) ReadObject() (*entities.RPCdata, error) {
 	var data entities.RPCdata
 	// fmt.Println("反序列化前dataByte: ", dataByte)
 	err = ser.Deserialize(dataByte, &data)
-	// fmt.Println("反序列化后data: ", data)
+	// fmt.Printf("反序列化后data: %v, args: %v, err: %v\n", data.Name, data.Args, data.Err)
 	if err != nil {
 		return nil, err
 	}

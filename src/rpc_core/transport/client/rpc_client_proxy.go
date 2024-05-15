@@ -2,12 +2,15 @@ package transportClient
 
 import (
 	"errors"
+	"fmt"
 	"jrpc/src/rpc_common/entities"
 	"reflect"
 )
 
 type RpcClientProxy struct {
-	client RpcClient
+	client  RpcClient
+	aimless bool
+	to      string
 }
 
 func NewRpcClientProxy(client RpcClient) RpcClientProxy {
@@ -27,6 +30,9 @@ func (rcp RpcClientProxy) NewProxyInstance(iClass interface{}) interface{} {
 	for idx := 0; idx < rClass.NumField(); idx++ {
 		rElemType := rType.Field(idx)
 		rElemClass := rClass.Field(idx)
+
+		fmt.Println("注意rElemType.Name: ", rElemType.Name)
+		fmt.Println("注意rElemType.Type: ", rElemType.Type)
 		if rElemType.Type.Kind() == reflect.Func {
 			if !rElemClass.CanSet() {
 				continue
