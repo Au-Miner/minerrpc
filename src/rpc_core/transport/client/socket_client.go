@@ -2,11 +2,11 @@ package transportClient
 
 import (
 	"fmt"
-	"jrpc/src/rpc_common/entities"
-	"jrpc/src/rpc_core/load_balancer"
-	"jrpc/src/rpc_core/serializer"
-	"jrpc/src/rpc_core/services/discovery"
-	transportUtils "jrpc/src/rpc_core/transport/utils"
+	"minerrpc/src/rpc_common/entities"
+	"minerrpc/src/rpc_core/load_balancer"
+	"minerrpc/src/rpc_core/serializer"
+	"minerrpc/src/rpc_core/services/discovery"
+	transportUtils "minerrpc/src/rpc_core/transport/utils"
 	"net"
 )
 
@@ -36,12 +36,9 @@ func (client *SocketClient) SendRequest(req entities.RPCdata) (*entities.RPCdata
 	var addr *net.TCPAddr
 	var err error
 	if client.AimIp == "" {
-		fmt.Println("走的是ServiceDiscovery")
 		addr, err = client.ServiceDiscovery.LookupService(req.Name)
-		fmt.Println("结果为addr", addr)
 	} else {
 		addr, err = net.ResolveTCPAddr("tcp", client.AimIp)
-		fmt.Println("走的是ResolveTCPAddr")
 	}
 	if err != nil {
 		return nil, fmt.Errorf("failed to lookup service: %w", err)

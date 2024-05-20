@@ -4,8 +4,8 @@ import (
 	"encoding/binary"
 	"errors"
 	"io"
-	"jrpc/src/rpc_common/entities"
-	"jrpc/src/rpc_core/serializer"
+	"minerrpc/src/rpc_common/entities"
+	"minerrpc/src/rpc_core/serializer"
 	"net"
 )
 
@@ -35,7 +35,6 @@ func (or *ObjectReader) ReadObject() (*entities.RPCdata, error) {
 		return nil, err
 	}
 	serCode := binary.BigEndian.Uint32(serCodeByte)
-	// fmt.Println("serCode是: ", serCode)
 	ser := serializer.GetByCode(int(serCode))
 	if ser == nil {
 		return nil, errors.New("unknown serializer")
@@ -45,16 +44,13 @@ func (or *ObjectReader) ReadObject() (*entities.RPCdata, error) {
 		return nil, err
 	}
 	dataLen := binary.BigEndian.Uint32(dataLenByte)
-	// fmt.Println("dataLen是: ", dataLen)
 	dataByte := make([]byte, dataLen)
 	_, err = io.ReadFull(or.conn, dataByte)
 	if err != nil {
 		return nil, err
 	}
 	var data entities.RPCdata
-	// fmt.Println("反序列化前dataByte: ", dataByte)
 	err = ser.Deserialize(dataByte, &data)
-	// fmt.Printf("反序列化后data: %v, args: %v, err: %v\n", data.Name, data.Args, data.Err)
 	if err != nil {
 		return nil, err
 	}

@@ -1,11 +1,11 @@
 package transportServer
 
 import (
-	"jrpc/src/rpc_core/handler"
-	"jrpc/src/rpc_core/provider"
-	"jrpc/src/rpc_core/serializer"
-	transportUtils "jrpc/src/rpc_core/transport/utils"
 	"log"
+	"minerrpc/src/rpc_core/handler"
+	"minerrpc/src/rpc_core/provider"
+	"minerrpc/src/rpc_core/serializer"
+	transportUtils "minerrpc/src/rpc_core/transport/utils"
 	"net"
 )
 
@@ -45,7 +45,6 @@ func (ss *SocketServer) Start() {
 		return
 	}
 	for {
-		// log.Printf("等待监听conn")
 		conn, err := l.Accept()
 		if err != nil {
 			log.Printf("accept err: %v\n", err)
@@ -57,14 +56,11 @@ func (ss *SocketServer) Start() {
 			nowObjWriter := transportUtils.NewObjectWriter(conn)
 			transportUtils.NewObjectWriter(conn)
 			for {
-				// fmt.Println("server准备接受decReq")
 				decReq, err := nowObjReader.ReadObject()
 				if err != nil {
 					log.Printf("read err: %v\n", err)
 					return
 				}
-				// fmt.Println("===接收到了decReq: ", decReq)
-				// fmt.Println("===接收到了err: ", err)
 				f, err := ss.ServicesProvider.GetFunc(decReq.Name)
 				if err != nil {
 					log.Printf("service provider err: %v\n", err)

@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	transportServer "jrpc/src/rpc_core/transport/server"
-	serversServices "jrpc/src/rpc_server/servers/services"
+	transportServer "minerrpc/src/rpc_core/transport/server"
+	serversServices "minerrpc/src/rpc_server/servers/services"
 	"os"
 	"os/signal"
 )
@@ -13,7 +13,8 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	srv.Register(&serversServices.TestImpl{})
+	ss := serversServices.TestImpl{}
+	srv.Register(&ss)
 	go srv.Start()
 
 	stopChan := make(chan os.Signal, 1)

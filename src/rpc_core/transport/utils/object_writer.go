@@ -2,8 +2,8 @@ package transportUtils
 
 import (
 	"encoding/binary"
-	"jrpc/src/rpc_common/entities"
-	"jrpc/src/rpc_core/serializer"
+	"minerrpc/src/rpc_common/entities"
+	"minerrpc/src/rpc_core/serializer"
 	"net"
 )
 
@@ -21,13 +21,10 @@ func NewObjectWriter(conn net.Conn) *ObjectWriter {
 }
 
 func (ow *ObjectWriter) WriteObject(data *entities.RPCdata, serializer serializer.CommonSerializer) error {
-	// fmt.Println("序列化前data: ", data)
 	dataByte, err := serializer.Serialize(data)
-	// fmt.Println("序列化后dataByte: ", dataByte)
 	if err != nil {
 		return err
 	}
-	// fmt.Println("headerLen+len(dataByte)为: ", headerLen+len(dataByte))
 	buf := make([]byte, headerLen+len(dataByte))
 	binary.BigEndian.PutUint32(buf[:headerLen/3], uint32(MagicNumber))
 	binary.BigEndian.PutUint32(buf[headerLen/3:headerLen/3*2], uint32(serializer.GetCode()))

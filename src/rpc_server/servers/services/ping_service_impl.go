@@ -7,5 +7,5 @@ func (s *TestImpl) Ping() (string, error) {
 }
 
 func (s *TestImpl) Hello() (string, error) {
-	return "World", nil
+	return "name ", nil
 }

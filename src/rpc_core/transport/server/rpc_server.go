@@ -1,6 +1,6 @@
 package transportServer
 
-import "jrpc/src/rpc_core/serializer"
+import "minerrpc/src/rpc_core/serializer"
 
 const (
 	DEFAULT_SERIALIZER = serializer.JSONSerializer

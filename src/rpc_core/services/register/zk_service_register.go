@@ -1,7 +1,7 @@
 package servicesRegister
 
 import (
-	"jrpc/src/rpc_common/utils"
+	"minerrpc/src/rpc_common/utils"
 	"net"
 )
 

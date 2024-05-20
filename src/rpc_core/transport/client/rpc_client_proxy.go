@@ -2,8 +2,7 @@ package transportClient
 
 import (
 	"errors"
-	"fmt"
-	"jrpc/src/rpc_common/entities"
+	"minerrpc/src/rpc_common/entities"
 	"reflect"
 )
 
@@ -31,8 +30,6 @@ func (rcp RpcClientProxy) NewProxyInstance(iClass interface{}) interface{} {
 		rElemType := rType.Field(idx)
 		rElemClass := rClass.Field(idx)
 
-		fmt.Println("注意rElemType.Name: ", rElemType.Name)
-		fmt.Println("注意rElemType.Type: ", rElemType.Type)
 		if rElemType.Type.Kind() == reflect.Func {
 			if !rElemClass.CanSet() {
 				continue
@@ -58,9 +55,10 @@ func (rcp RpcClientProxy) NewProxyInstance(iClass interface{}) interface{} {
 				reqRPC := entities.RPCdata{Name: rElemType.Name, Args: inArgs}
 
 				// client执行请求reqRPC
-				// fmt.Println("client准备发送reqRPC")
-				rspDecode, _ := rcp.client.SendRequest(reqRPC)
-				// fmt.Println("client接受到了rspDecode")
+				rspDecode, err := rcp.client.SendRequest(reqRPC)
+				if err != nil {
+					return errorHandler(err)
+				}
 
 				if rspDecode.Err != "" { // remote server error
 					return errorHandler(errors.New(rspDecode.Err))

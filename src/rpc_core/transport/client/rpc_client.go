@@ -1,8 +1,8 @@
 package transportClient
 
 import (
-	"jrpc/src/rpc_common/entities"
-	"jrpc/src/rpc_core/serializer"
+	"minerrpc/src/rpc_common/entities"
+	"minerrpc/src/rpc_core/serializer"
 )
 
 const (

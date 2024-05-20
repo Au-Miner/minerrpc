@@ -1,8 +1,8 @@
 package servicesDiscovery
 
 import (
-	"jrpc/src/rpc_common/utils"
-	"jrpc/src/rpc_core/load_balancer"
+	"minerrpc/src/rpc_common/utils"
+	"minerrpc/src/rpc_core/load_balancer"
 	"net"
 )
 

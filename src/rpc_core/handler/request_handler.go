@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"jrpc/src/rpc_common/entities"
+	"minerrpc/src/rpc_common/entities"
 	"reflect"
 )
 
