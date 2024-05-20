@@ -6,7 +6,7 @@ import (
 	"minerrpc/rpc_core/load_balancer"
 	"minerrpc/rpc_core/serializer"
 	services_discovery "minerrpc/rpc_core/services/services_discovery"
-	transportUtils "minerrpc/rpc_core/transport/utils"
+	transportUtils "minerrpc/rpc_core/transport/transport_utils"
 	"net"
 )
 
