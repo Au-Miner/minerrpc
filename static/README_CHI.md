@@ -1,7 +1,7 @@
 # MinerRPC
 
 ## What is MinerRPC
-MinerRPC 基于 Socket+Zookeeper 实现的纯GO语言 RPC 框架。
+MinerRPC 是一个基于 Socket+Zookeeper 实现的纯GO语言 RPC 框架。
 
 MinerRPC支持动态代理、网络传输、序列化、服务注册、服务发现、服务调用等功能。
 
