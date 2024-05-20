@@ -1,4 +1,4 @@
-package servicesRegister
+package services_register
 
 import "net"
 

@@ -1,4 +1,4 @@
-package apiServices
+package api_services
 
 // 以一种类似interface的方式定义了一个struct
 type Test struct {

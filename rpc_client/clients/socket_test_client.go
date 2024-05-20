@@ -2,15 +2,15 @@ package main
 
 import (
 	"fmt"
-	apiServices "minerrpc/rpc_api/services"
-	transportClient "minerrpc/rpc_core/transport/client"
+	"minerrpc/rpc_api/api_services"
+	"minerrpc/rpc_core/transport/transport_client"
 )
 
 func main() {
-	client := transportClient.NewDefaultSocketClient()
-	proxy := transportClient.NewRpcClientProxy(client)
+	client := transport_client.NewDefaultSocketClient()
+	proxy := transport_client.NewRpcClientProxy(client)
 
-	testService := proxy.NewProxyInstance(&apiServices.Test{}).(*apiServices.Test)
+	testService := proxy.NewProxyInstance(&api_services.Test{}).(*api_services.Test)
 	res, _ := testService.Ping()
 	fmt.Println("The result is: ", res)
 	res, _ = testService.Hello()

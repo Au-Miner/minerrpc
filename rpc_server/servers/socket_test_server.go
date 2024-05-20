@@ -2,18 +2,18 @@ package main
 
 import (
 	"fmt"
-	transportServer "minerrpc/rpc_core/transport/server"
-	serversServices "minerrpc/rpc_server/servers/services"
+	"minerrpc/rpc_core/transport/transport_server"
+	"minerrpc/rpc_server/servers/servers_services"
 	"os"
 	"os/signal"
 )
 
 func main() {
-	srv, err := transportServer.NewDefaultSocketServer("localhost:3212")
+	srv, err := transport_server.NewDefaultSocketServer("localhost:3212")
 	if err != nil {
 		panic(err)
 	}
-	ss := serversServices.TestImpl{}
+	ss := servers_services.TestImpl{}
 	srv.Register(&ss)
 	go srv.Start()
 

@@ -1,4 +1,4 @@
-package serversServices
+package servers_services
 
 type TestImpl struct{}
 

@@ -1,4 +1,4 @@
-package transportServer
+package transport_server
 
 import "minerrpc/rpc_core/serializer"
 

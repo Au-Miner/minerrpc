@@ -1,4 +1,4 @@
-package transportClient
+package transport_client
 
 import (
 	"minerrpc/rpc_common/entities"

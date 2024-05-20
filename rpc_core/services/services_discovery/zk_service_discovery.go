@@ -1,4 +1,4 @@
-package servicesDiscovery
+package services_discovery
 
 import (
 	"minerrpc/rpc_common/utils"

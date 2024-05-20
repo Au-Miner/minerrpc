@@ -1,17 +1,17 @@
-package transportClient
+package transport_client
 
 import (
 	"fmt"
 	"minerrpc/rpc_common/entities"
 	"minerrpc/rpc_core/load_balancer"
 	"minerrpc/rpc_core/serializer"
-	"minerrpc/rpc_core/services/discovery"
+	services_discovery "minerrpc/rpc_core/services/services_discovery"
 	transportUtils "minerrpc/rpc_core/transport/utils"
 	"net"
 )
 
 type SocketClient struct {
-	ServiceDiscovery servicesDiscovery.ServiceDiscovery
+	ServiceDiscovery services_discovery.ServiceDiscovery
 	Serializer       serializer.CommonSerializer
 	AimIp            string
 }
@@ -27,7 +27,7 @@ func NewDefaultSocketClientWithAimIp(aimIp string) *SocketClient {
 func NewSocketClient(serializerId int, loadBalancer load_balancer.LoadBalancer, aimIp string) *SocketClient {
 	return &SocketClient{
 		Serializer:       serializer.GetByCode(serializerId),
-		ServiceDiscovery: servicesDiscovery.NewZkServiceDiscovery(loadBalancer),
+		ServiceDiscovery: services_discovery.NewZkServiceDiscovery(loadBalancer),
 		AimIp:            aimIp,
 	}
 }

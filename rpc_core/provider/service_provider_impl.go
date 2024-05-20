@@ -2,7 +2,7 @@ package provider
 
 import (
 	"fmt"
-	servicesRegister "minerrpc/rpc_core/services/register"
+	servicesRegister "minerrpc/rpc_core/services/services_register"
 	"net"
 	"reflect"
 )

@@ -1,4 +1,4 @@
-package transportClient
+package transport_client
 
 import (
 	"errors"
@@ -60,7 +60,7 @@ func (rcp RpcClientProxy) NewProxyInstance(iClass interface{}) interface{} {
 					return errorHandler(err)
 				}
 
-				if rspDecode.Err != "" { // remote server error
+				if rspDecode.Err != "" { // remote transport_server error
 					return errorHandler(errors.New(rspDecode.Err))
 				}
 				if len(rspDecode.Args) == 0 {

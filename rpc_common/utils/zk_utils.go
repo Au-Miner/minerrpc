@@ -20,7 +20,7 @@ func init() {
 	if err != nil {
 		panic(fmt.Sprintf("Failed to connect to Zookeeper: %v", err))
 	}
-	fmt.Println("ZK client connected successfully.")
+	fmt.Println("ZK transport_client connected successfully.")
 	cleanupHook()
 }
 
@@ -29,7 +29,7 @@ func cleanupHook() {
 	signal.Notify(c, os.Interrupt)
 	go func() {
 		for range c {
-			fmt.Println("ZK client is closing.")
+			fmt.Println("ZK transport_client is closing.")
 			conn.Close()
 		}
 	}()
