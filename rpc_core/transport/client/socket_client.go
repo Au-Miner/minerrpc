@@ -2,11 +2,11 @@ package transportClient
 
 import (
 	"fmt"
-	"minerrpc/src/rpc_common/entities"
-	"minerrpc/src/rpc_core/load_balancer"
-	"minerrpc/src/rpc_core/serializer"
-	"minerrpc/src/rpc_core/services/discovery"
-	transportUtils "minerrpc/src/rpc_core/transport/utils"
+	"minerrpc/rpc_common/entities"
+	"minerrpc/rpc_core/load_balancer"
+	"minerrpc/rpc_core/serializer"
+	"minerrpc/rpc_core/services/discovery"
+	transportUtils "minerrpc/rpc_core/transport/utils"
 	"net"
 )
 

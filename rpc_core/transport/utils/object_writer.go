@@ -2,8 +2,8 @@ package transportUtils
 
 import (
 	"encoding/binary"
-	"minerrpc/src/rpc_common/entities"
-	"minerrpc/src/rpc_core/serializer"
+	"minerrpc/rpc_common/entities"
+	"minerrpc/rpc_core/serializer"
 	"net"
 )
 

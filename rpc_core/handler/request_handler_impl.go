@@ -2,7 +2,7 @@ package handler
 
 import (
 	"log"
-	"minerrpc/src/rpc_common/entities"
+	"minerrpc/rpc_common/entities"
 	"reflect"
 )
 

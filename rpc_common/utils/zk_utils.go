@@ -3,7 +3,7 @@ package utils
 import (
 	"fmt"
 	"github.com/samuel/go-zookeeper/zk"
-	"minerrpc/src/rpc_common/constants"
+	"minerrpc/rpc_common/constants"
 	"net"
 	"os"
 	"os/signal"

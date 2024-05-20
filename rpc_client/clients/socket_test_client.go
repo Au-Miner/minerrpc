@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	apiServices "minerrpc/src/rpc_api/services"
-	transportClient "minerrpc/src/rpc_core/transport/client"
+	apiServices "minerrpc/rpc_api/services"
+	transportClient "minerrpc/rpc_core/transport/client"
 )
 
 func main() {

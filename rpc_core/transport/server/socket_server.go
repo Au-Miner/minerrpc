@@ -2,10 +2,10 @@ package transportServer
 
 import (
 	"log"
-	"minerrpc/src/rpc_core/handler"
-	"minerrpc/src/rpc_core/provider"
-	"minerrpc/src/rpc_core/serializer"
-	transportUtils "minerrpc/src/rpc_core/transport/utils"
+	"minerrpc/rpc_core/handler"
+	"minerrpc/rpc_core/provider"
+	"minerrpc/rpc_core/serializer"
+	transportUtils "minerrpc/rpc_core/transport/utils"
 	"net"
 )
 

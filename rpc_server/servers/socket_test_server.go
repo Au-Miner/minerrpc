@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	transportServer "minerrpc/src/rpc_core/transport/server"
-	serversServices "minerrpc/src/rpc_server/servers/services"
+	transportServer "minerrpc/rpc_core/transport/server"
+	serversServices "minerrpc/rpc_server/servers/services"
 	"os"
 	"os/signal"
 )
