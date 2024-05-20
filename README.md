@@ -1,6 +1,6 @@
 # MinerRPC
 
-中文见[README_CHI](static/README_CHI.md)
+中文见 [README_CHI](static/README_CHI.md)
 
 ## What is MinerRPC
 MinerRPC is a pure GO language RPC framework based on Socket+Zookeeper.
