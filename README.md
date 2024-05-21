@@ -41,7 +41,7 @@ Uses Socket for network transmission.
 ### ZooKeeper
 `docker run -d --name zookeeper -p 2181:2181 zookeeper:3.5.8`
 
-### client端
+### client
 Define class information for requesting services on the client side
 ```
 type Test struct {
@@ -70,7 +70,7 @@ func main() {
 	fmt.Println("The result is: ", res)
 }
 ```
-### server端
+### server
 Implement the methods in the class information defined by the client side on the server side
 ```
 type TestImpl struct{}
