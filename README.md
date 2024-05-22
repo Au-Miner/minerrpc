@@ -8,7 +8,8 @@ MinerRPC is a pure GO language RPC framework based on Socket+Zookeeper.
 MinerRPC supports dynamic proxy, network transmission, serialization, service registration, service discovery, and service invocation.
 
 ## Status
-Currently, MinerRPC is suitable for learning and small projects, and its performance and stability have been verified in MinerDB.
+Currently, MinerRPC is suitable for learning and small projects, and its performance and stability have been verified in
+[MinerDB](https://github.com/Au-Miner/minerdb).
 
 ## Design overview
 ![MinerRPC.png](static/MinerRPC.png)
